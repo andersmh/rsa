@@ -10,19 +10,29 @@ import javax.crypto.Cipher;
 public class RSA {
 
 	public static void main(String[] args) throws Exception {
+	
+		
+		
 		// generate public and private keys
 		KeyPair keyPair = buildKeyPair();
 		PublicKey pubKey = keyPair.getPublic();
 		PrivateKey privateKey = keyPair.getPrivate();
 
+		
+		
 		// sign the message
-		byte[] signed = encrypt(privateKey, "This is a secret message");
+		byte[] signed = encrypt(privateKey, "message");
 		System.out.println(new String(signed)); // <<signed message>>
 
+		
+		
 		// verify the message
-		byte[] encrypted = new byte[10];
-		byte[] verified = decrypt(pubKey, encrypted);
-		System.out.println(new String(verified)); // This is a secret message
+		
+//		byte[] verified = decrypt(pubKey, encrypted);
+//		System.out.println(new String(verified)); // This is a secret message
+	
+	
+	
 	}
 
 	public static KeyPair buildKeyPair() throws NoSuchAlgorithmException {
